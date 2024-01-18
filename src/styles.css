@@ -1,0 +1,14 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.viacontainer{
+  display: flex;
+  flex-direction: column;
+  width:50%;
+  margin:0 auto;
+
+}
+.viacontainer input{
+  text-align: center;
+}
