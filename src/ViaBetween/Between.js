@@ -1,41 +1,46 @@
 import React from "react";
-function Between(
-  // ({ formData, setFormData })
-  { onChange }
-) {
-  const handleInputChange = (e) => {
-    if (onChange) {
-      onChange(e.target.value);
-    }
-    // setFormData((prevValue) => ({
-    //   ...prevValue,
-    //   location: e.target.value,
-    // }));
-  };
-  // const handleStairChange = (e) => {
-  //   setFormData((prevValue) => ({
-  //     ...prevValue,
-  //     stair: e.target.value,
-  //   }));
+function Between({
+  inputValue,
+  handleInputChange,
+  inputAddress,
+  handleInputAddressChange,
+  selectedStair,
+  handleStairChange,
+}) {
+  // const handleInputChange = (e) => {
+  //   if (onChange) {
+  //     onChange(e.target.value);
+  //   }
   // };
+
   return (
     <>
-      <label htmlFor="collection">Between</label>
+      <label htmlFor="collection" className="between">
+        Via
+      </label>
       <input
         type="text"
-        // value={formData.location}
-        // value={e.target.value}
-        onChange={handleInputChange}
+        value={inputValue}
+        onChange={(e) => handleInputChange(e.target.value)}
         required
       />
-      {/* <label htmlFor="stair">Stair</label>
-      <select value={formData.stair} onChange={handleStairChange}>
-        <option>Please Choose Stair</option>
-        <option value={0}>NoStair</option>
-        <option value={1}>No.1</option>
-        <option value={2}>No.2</option>
-        <option value={3}>No.3</option>
-      </select> */}
+      <label htmlFor="address">Physical Address</label>
+      <input
+        type="text"
+        value={inputAddress}
+        onChange={(e) => handleInputAddressChange(e.target.value)}
+        required
+      />
+      <select
+        value={selectedStair}
+        onChange={(e) => handleStairChange(e.target.value)}
+      >
+        <option value={-1}>Please Choose From the List</option>
+        <option value={0}>0</option>
+        <option value={1}>1</option>
+        <option value={2}>2</option>
+        <option value={3}>3</option>
+      </select>
     </>
   );
 }

@@ -4,11 +4,21 @@
 }
 .viacontainer{
   display: flex;
-  flex-direction: column;
+  margin:0 auto;
+  width: 70%;
+  /* flex-direction: row;
   width:50%;
   margin:0 auto;
+  gap:20px; */
 
 }
 .viacontainer input{
   text-align: center;
+}
+.between{
+  background-color: blue;
+}
+.viacontainer button{
+  background-color:red;
+  margin-bottom: 20px;
 }
