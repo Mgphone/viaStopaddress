@@ -8,9 +8,14 @@ function Testing({ inputValue }) {
   const [searchResult, setSearchResult] = useState("");
   const [error, setError] = useState(false);
   const [outPutValue, setOutPutValue] = useState(false);
+  const searchOptions = {
+    componentRestrictions: { country: ["uk"] },
+    types: ["city"],
+  };
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: apiKey,
     libraries: placesLibrary,
+    searchOptions: { searchOptions },
   });
 
   function onLoad(autocomplete) {

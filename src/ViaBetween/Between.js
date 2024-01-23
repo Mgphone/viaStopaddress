@@ -10,10 +10,7 @@ function Between({
   handleStairChange,
 }) {
   const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-  const searchOptions = {
-    componentRestrictions: { country: ["uk"] },
-    types: ["city"],
-  };
+
   return (
     <>
       <label htmlFor="collection" className="between">
@@ -21,13 +18,19 @@ function Between({
       </label>
       <ReactGoogleAutocomplete
         id="locationInput"
-        // types={["(regions)"]}
-        // componentRestrictions={{ country: "uk" }}
-        searchOptions={searchOptions}
         apiKey={apiKey}
-        onPlaceSelected={(place) => handleInputChange(place.formatted_address)}
+        onPlaceSelected={(place) => {
+          console.log("Place Selected:", place);
+
+          handleInputChange(place.formatted_address);
+        }}
         placeholder="Enter location"
-        value={inputAddress}
+        value={inputValue}
+        options={{
+          types: ["(regions)"],
+          componentRestrictions: { country: "uk" },
+        }}
+        defaultValue="NW2"
         // style={{
         //   boxSizing: "border-box",
         //   border: "1px solid transparent",

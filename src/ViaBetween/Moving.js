@@ -92,6 +92,7 @@ function Moving() {
                 selectedStair={selectedStair}
                 handleStairChange={(value) => handleStairChange(value, id)}
               />
+              <button>Confirm</button>
               <button onClick={() => removeBetween(id)}>Remove Stop</button>
             </div>
           ))}
